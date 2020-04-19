@@ -21,16 +21,26 @@ for (i = 0; i < key.length; i++) {
 
 
 console.log(newSentence);
-correctKeySize(key,palavra);
+console.log(correctKeySize("incendio" , "fogo no parquinho"));
+
 function correctKeySize(key, sentence) {
-    key = key.split(" ").join();
-    let newKey = sentence.split("").reduce((accumulator, letter, index)=>{
-        index = key.length - 1 < index ? 0 : index
-        accumulator = (letter == " " ? accumulator.concat(" ") : 
-        accumulator.concat(key.charAt(index)));
-        return accumulator;
-    }, "");
+    key = key.split(" ").join("");
+    let newKey = sentence.split("").reduce((accumulator, letter)=>{
+        if(letter == " "){
+            accumulator = accumulator.concat(" ");
+        }else{
+            let nextChar = key.substr(0,1);
+            key = manipulateKey(key);
+            accumulator = accumulator.concat(nextChar);
+        }
+        return accumulator
+    }, new String());
     return newKey;
+}
+
+function manipulateKey(key){
+    let firstChar = key.substr(0,1);
+    return key.substr(1 - key.length).concat(firstChar);
 }
 
 
