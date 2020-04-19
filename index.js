@@ -7,13 +7,6 @@ let key = "pessoa";
 key = key.toUpperCase();
 palavra = palavra.toUpperCase();
 
-//TRATANDO O TAMANHO DA VARIAVEL KEY PARA
-
-
-if (palavra.length < key.length) {
-    key = key.substr(0, palavra.length)
-    console.log(key.toUpperCase());
-};
 
 let newKey = [];
 var newSentence = String();
