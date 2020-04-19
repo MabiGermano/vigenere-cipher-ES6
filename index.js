@@ -2,6 +2,8 @@ let A = 65;
 
 let palavra = "raphael";
 let key = "pessoa";
+key = key.toUpperCase();
+palavra = palavra.toUpperCase();
 
 //TRATANDO O TAMANHO DA VARIAVEL KEY PARA
     if (palavra.length > key.length) {
@@ -18,14 +20,23 @@ let key = "pessoa";
         console.log(key.toUpperCase());
     };
 
-newKey = [];
+let newKey = [];
+var newSentence = String();
 for (i = 0; i < key.length;i++) {
-    newKey = newKey.concat(key.toUpperCase().charCodeAt(i) - A + 1);
+    let position = (key.charCodeAt(i) - A);
+    let charCode = palavra.charCodeAt(i) + position;
+    if(charCode > 90){
+        console.log("-------------------")
+        console.log(key.charAt(i));
+        console.log(key.charCodeAt(i));
+        console.log(charCode);
+        console.log(charCode - 90);
+        console.log(A + (charCode - 90));
+    }
+    newSentence = newSentence.concat();
 };
-console.log(key);
-arr = newKey.charAt(0);
 
-console.log(String.fromCodePoint(arr));
+console.log(newSentence);
 
 
 
