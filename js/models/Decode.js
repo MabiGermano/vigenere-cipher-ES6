@@ -1,0 +1,5 @@
+class Decode{
+    constructor(){
+        
+    }
+}
