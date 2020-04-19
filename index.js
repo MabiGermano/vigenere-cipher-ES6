@@ -1,4 +1,6 @@
-let A = 65;
+//Referênias feitas dessa forma para ter as letras A e Z inclusive.
+const REFERENCE_START = "A".charCodeAt(0) - 1;
+const REFERENCE_END = "Z".charCodeAt(0) + 1;
 
 let palavra = "raphael";
 let key = "pessoa";
@@ -6,14 +8,7 @@ key = key.toUpperCase();
 palavra = palavra.toUpperCase();
 
 //TRATANDO O TAMANHO DA VARIAVEL KEY PARA
-    if (palavra.length > key.length) {
-        let count = 0;
-        while (palavra.length > key.length) {
-            key = key.concat(key.charAt(count));
-            count++;
-           // console.log(key.toUpperCase());
-        }
-    };
+   
 
     if (palavra.length < key.length) {
         key = key.substr(0, palavra.length)
@@ -23,22 +18,26 @@ palavra = palavra.toUpperCase();
 let newKey = [];
 var newSentence = String();
 for (i = 0; i < key.length;i++) {
-    let position = (key.charCodeAt(i) - A);
+    let position = key.charCodeAt(i) - REFERENCE_START;
     let charCode = palavra.charCodeAt(i) + position;
     if(charCode > 90){
-        console.log("-------------------")
-        console.log(key.charAt(i));
-        console.log(key.charCodeAt(i));
-        console.log(charCode);
-        console.log(charCode - 90);
-        console.log(A + (charCode - 90));
+        REFERENCE_START + (charCode - REFERENCE_END);
     }
     newSentence = newSentence.concat();
 };
 
+
 console.log(newSentence);
 
-
+function correctKeySize(key, sentence){
+    if (sentence.length > key.length) {
+        let count = 0;
+        while (sentence.length > key.length) {
+            key = key.concat(key.charAt(count));
+            count++;
+        }
+    };
+}
 
 
  
