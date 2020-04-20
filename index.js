@@ -1,5 +1,5 @@
 //Referênias feitas dessa forma para ter as letras A e Z inclusive.
-/*const REFERENCE_START = "A".charCodeAt(0) - 1;
+const REFERENCE_START = "A".charCodeAt(0) - 1;
 const REFERENCE_END = "Z".charCodeAt(0) + 1;
 
 let sentence = "raphael";
@@ -42,13 +42,6 @@ function manipulateKey(key){
     let firstChar = key.substr(0,1);
     return key.substr(1 - key.length).concat(firstChar);
 }
-
-
-
-
-
-*/
-
 
 
 // 80 69 83 83 79 65 80 = "PESSOA"
