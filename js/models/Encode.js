@@ -13,7 +13,7 @@ class Encode{
 
     correctKeySize() {
         this._key = this._key.split(" ").join("");
-        let newKey = sentence.split("").reduce((accumulator, letter)=>{
+        let newKey = this._sentence.split("").reduce((accumulator, letter)=>{
             return letter == " " ? accumulator = accumulator.concat(" ") : 
             accumulator = accumulator.concat(this._getNextKeyChar);
         }, new String());
