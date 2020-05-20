@@ -1,19 +1,19 @@
 class Encode{
-    constructor(key, sentence){
+    constructor(key, phrase){
         this._key = key;
-        this._sentence = sentence;
+        this._phrase = phrase;
         Object.freeze();
     }
     get key(){
         return this._key;
     }
-    get sentence(){
-        return this._sentence;
+    get phrase(){
+        return this._phrase;
     }
 
     correctKeySize() {
         this._key = this._key.split(" ").join("");
-        let newKey = this._sentence.split("").reduce((accumulator, letter)=>{
+        let newKey = this._phrase.split("").reduce((accumulator, letter)=>{
             return letter == " " ? accumulator = accumulator.concat(" ") : 
             accumulator = accumulator.concat(this._getNextKeyChar);
         }, new String());
