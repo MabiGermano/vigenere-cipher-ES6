@@ -18,12 +18,17 @@
     
   </head>
   <body>
-    <div class="container">
-      <div class="row title">
-        <h1> Vigenère Cipher </h1>
+    <div class="container-fluid">
+      <div class="row row-title">
+        <div class="col title">
+          <h1> Vigenère Cipher </h1>
+        </div>
+        <div class="col">
+          <img src="img/seguranca.png" alt="icon" id="icon-image" class="float-right">
+        </div>
       </div>
       <div class="row mt-5 row-form">
-        <form class="col-md-7" action="" onsubmit="encodeController.cryptography(event)">
+        <form class="col-md-7 col-sm-12" action="" onsubmit="encodeController.cryptography(event)">
           <div class="row">
             <div class="form-group col-md-12">
               <label for="phrase">Phrase: </label>
