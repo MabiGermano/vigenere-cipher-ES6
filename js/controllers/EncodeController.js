@@ -35,10 +35,10 @@ class EncodeController {
             }else{
                 let position = encode.key.charCodeAt(i) - this._REFERENCE_START;
                 let charCode = String(encode.phrase.charCodeAt(i) + position);
-                if (charCode > 90) {
+                if (charCode > this._REFERENCE_END) {
                     newPhrase = newPhrase.concat(String.fromCharCode(this._REFERENCE_START + (charCode - this._REFERENCE_END)));
                 } else {
-                    newPhrase = newPhrase.concat(String.fromCharCode(charCode));
+                    newPhrase = newPhrase.concat(String.fromCharCode(charCode-1));
                 }
             }
         };
