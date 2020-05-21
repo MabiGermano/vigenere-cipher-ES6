@@ -4,6 +4,7 @@ class CodedMessageView extends View{
     }
 
     template(model) {
-        return model.message ? `<p class="alert alert-success">${model.mensagem}</p>` : `<p></p>`
+        console.log(model);
+        return model.message ? `<span>${model.message}</span>` : `<span></span>`
     }
 }
