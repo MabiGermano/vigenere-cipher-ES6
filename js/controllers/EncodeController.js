@@ -17,7 +17,7 @@ class EncodeController {
         event.preventDefault();
         this._message.message = this._encrypt();
         this._componentMessage.update(this._message);
-        this._cleanForm();
+        
     }
 
     //FIXME: melhorar esse código
