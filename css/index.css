@@ -1,17 +1,30 @@
 body {
-    background-color: #CFCFCF;
+    background-color: #0A1732;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #FFF;
+    padding: 3em;
   }
 
-  img {
-    width: 15em;
+  .row-form{
+      padding: 0.5em;
+      background-image: url('../img/seguranca.png');
+      background-clip: border-box;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position-x: 95%;
+
   }
 
-  .mainContent {
-    background-color: #FFF;
-    position: absolute;
-    left: 15%;
-    width: 70%;
-    height: 100vh;
-    box-shadow: 0 8px 6px 3px grey;
+.btn-round{
+    border-radius: 2em;
+}
 
+.btn-gold{
+    background-color: gold;
+}
+
+  h1{
+    font-family: 'Rock Salt', cursive;
+    color: #FFF;
   }
