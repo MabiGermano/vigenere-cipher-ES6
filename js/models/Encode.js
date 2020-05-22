@@ -27,6 +27,7 @@ class Encode{
         return firstChar;
     }
 
+    //FIXME: colocar esse método num helper
     _testRegex(letter){
         let regexp = new RegExp(/[^a-zA-Z0-9]|\s+/g);
         return regexp.test(letter);
