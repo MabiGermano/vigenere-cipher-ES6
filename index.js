@@ -47,3 +47,32 @@ function manipulateKey(key){
 // 80 69 83 83 79 65 80 = "PESSOA"
 // 80 69 83 83 79 65 80
 // 15 4 18 18 14 0 15 = resultado subtração
+
+
+let regexp = new RegExp(/[^a-zA-Z0-9]+/g);
+for (let i = 0; i < encode.key.length; i++) {
+    if(regexp.test(encode.phrase.charAt(i))){
+        newPhrase = newPhrase.concat(encode.phrase.charAt(i));
+    }else{
+        let position = encode.key.charCodeAt(i) - this._REFERENCE_START;
+        let charCode = String(encode.phrase.charCodeAt(i) + position);
+        if (charCode > this._REFERENCE_END) {
+            newPhrase = newPhrase.concat(String.fromCharCode(this._REFERENCE_START + (charCode - this._REFERENCE_END)));
+        } else {
+            newPhrase = newPhrase.concat(String.fromCharCode(charCode-1));
+        }
+    }
+};
+
+encode.phrase.split("").reduce((accumulator, letter, index) => {
+
+    let positionKey = encode.key.charCodeAt(index) - this._REFERENCE_START;
+    let charCode = String(letter.charCodeAt(0) + positionKey);
+
+    if (charCode > this._REFERENCE_END) {
+        newPhrase = newPhrase.concat(String.fromCharCode(this._REFERENCE_START + (charCode - this._REFERENCE_END)));
+    } else {
+        newPhrase = newPhrase.concat(String.fromCharCode(charCode-1));
+    }
+
+}, String());
