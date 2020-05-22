@@ -15,7 +15,7 @@ class Encode{
         this._key = this._key.split(" ").join("");
         
         let newKey = this._phrase.split("").reduce((accumulator, letter)=>{
-            return letter == " " ? accumulator = accumulator.concat(letter) :
+            return this._testRegex(letter) ? accumulator = accumulator.concat(letter) :
             accumulator = accumulator.concat(this._getNextKeyChar());
         },  String());
         this._key = newKey;
@@ -25,5 +25,10 @@ class Encode{
         let firstChar = this._key.substr(0,1);
         this._key = this._key.substr(1 - this._key.length).concat(firstChar); 
         return firstChar;
+    }
+
+    _testRegex(letter){
+        let regexp = new RegExp(/[^a-zA-Z0-9]|\s+/g);
+        return regexp.test(letter);
     }
 }
