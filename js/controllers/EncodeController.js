@@ -27,10 +27,8 @@ class EncodeController {
         encode.correctKeySize();
         console.log(encode);
         let newPhrase = String();
-
-        let regexp = new RegExp(/[^a-zA-Z0-9]+/g);
         for (let i = 0; i < encode.key.length; i++) {
-            if(regexp.test(encode.phrase.charAt(i))){
+            if(this._testRegex(encode.phrase.charAt(i))){
                 newPhrase = newPhrase.concat(encode.phrase.charAt(i));
             }else{
                 let position = encode.key.charCodeAt(i) - this._REFERENCE_START;
@@ -43,6 +41,11 @@ class EncodeController {
             }
         };
         return newPhrase;
+    }
+
+    _testRegex(letter){
+        let regexp = new RegExp(/[^a-zA-Z0-9]|\s+/g);
+        return regexp.test(letter);
     }
 
     _cleanForm(){

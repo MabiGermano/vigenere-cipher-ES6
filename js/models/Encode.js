@@ -13,9 +13,9 @@ class Encode{
 
     correctKeySize() {
         this._key = this._key.split(" ").join("");
-        let regexp = new RegExp(/[^a-zA-Z0-9]+/g);
+        
         let newKey = this._phrase.split("").reduce((accumulator, letter)=>{
-            return regexp.test(letter) ? accumulator = accumulator.concat(letter) :
+            return letter == " " ? accumulator = accumulator.concat(letter) :
             accumulator = accumulator.concat(this._getNextKeyChar());
         },  String());
         this._key = newKey;
