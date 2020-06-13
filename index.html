@@ -29,20 +29,23 @@
       </div>
       <div class="row mt-5 row-form">
         <form class="col-md-7 col-sm-12" action="" onsubmit="controller.cryptography(event)">
+          <div id="invalid-field">
+
+          </div>
           <div class="row">
             <div class="form-group col-md-12">
               <label for="phrase">Phrase: </label>
-              <textarea type="text" class="form-control form-control-lg" name="phrase" id="phrase"></textarea>
+              <textarea type="text" class="form-control form-control-lg" name="phrase" id="phrase" required></textarea>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-8">
               <label for="key">Key: </label>
-              <input type="text" class="form-control form-control-lg" id="key">
+              <input type="text" class="form-control form-control-lg" id="key" required>
             </div>
             <div class="form-group col-md-4">
               <label for="type">Type</label>
-              <select id="type" class="form-control form-control-lg">
+              <select id="type" class="form-control form-control-lg" required>
                 <option selected value="">Choose...</option>
                 <option name="encode" value="encode">Encode</option>
                 <option name="decode" value="decode">Decode</option>
@@ -72,8 +75,9 @@
     <script src="js/models/Message.js"></script>
     <script src="js/controllers/MainController.js"></script>
     <script src="js/views/View.js"></script>
+    <script src="js/views/InvalidFieldView.js"></script>
     <script src="js/views/CodedMessageView.js"></script>
-    <script>let controller = new MainController();</script>
+    <script>let controller = new MainController(); </script>
   </body>
 </html>
 

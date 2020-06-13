@@ -6,16 +6,18 @@ class MainController {
         this._inputKey = docSelect("#key");
         this._inputType = docSelect("#type");
         this._message = new Message();
+        this._messageInvalidField = new Message();
         this._componentMessage = new CodedMessageView(docSelect('#resultField'));
+        this._invalidField = new InvalidFieldView(docSelect('#invalid-field'));
     }
 
     cryptography(event){
-        console.log(this);
         event.preventDefault();
 
-        this._message.message = this._inputType.value == 'encode' ? this._encrypt() : this._decrypt();
-        this._componentMessage.update(this._message);
-        
+        if(this._validateform()){
+            this._message.message = this._inputType.value == 'encode' ? this._encrypt() : this._decrypt();
+            this._componentMessage.update(this._message);
+        }
     }
 
     //FIXME: melhorar esse código
@@ -23,7 +25,6 @@ class MainController {
         event.preventDefault();
         let encode = new Encode(this._inputKey.value, this._inputPhrase.value);
         encode.correctKeySize();
-        console.log(encode);
         let newPhrase = String();
         for (let i = 0; i < encode.key.length; i++) {
             if(DataProcessingHelper.testRegex(encode.phrase.charAt(i))){
@@ -46,7 +47,6 @@ class MainController {
         event.preventDefault();
         let decode = new Decode(this._inputKey.value, this._inputPhrase.value);
         decode.correctKeySize();
-        console.log(decode);
         let originalPhrase = String();
 
         for (let i = 0; i < decode.key.length; i++) {
@@ -73,7 +73,21 @@ class MainController {
         this._inputType.value = "encode";
 
         this._inputPhrase.focus();
+    }
 
+    _validateform (){
+        if(!this._validateField(this._inputPhrase)){
+            if(!this._validateField(this._inputKey)){
+                return true;
+            }
+        }
+        return false;
+    }
 
+    _validateField (element) {
+        
+        this._messageInvalidField.message = DataProcessingHelper.validateField(element);
+        this._invalidField.update(this._messageInvalidField);
+        return this._messageInvalidField.message || '' ? true : false;
     }
 }

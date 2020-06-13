@@ -5,6 +5,9 @@ body {
     color: #FFF;
     
   }
+.alert {
+  font-size: 18px;
+}
 
   @media screen and (min-width: 998px){
     body {
