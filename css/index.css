@@ -105,8 +105,13 @@ body {
       margin: .5em;
   }
 
-.coded-message{
-    margin-left: 1em;
-    font-weight: bold;
-    color: gold;
+.table{
+  margin-top: 1em;
+  font-size: 18px;
+  color: gold;
+  border: 0.5px;
+}
+
+.table i {
+  color: coral;
 }

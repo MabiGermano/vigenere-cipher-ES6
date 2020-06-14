@@ -5,7 +5,7 @@ class MainController {
         this._inputPhrase = docSelect("#phrase");
         this._inputKey = docSelect("#key");
         this._inputType = docSelect("#type");
-        this._message = new Message();
+        this._message = new ResultCodeMessage();
         this._messageInvalidField = new Message();
         this._componentMessage = new CodedMessageView(docSelect('#resultField'));
         this._invalidField = new InvalidFieldView(docSelect('#invalid-field'));
@@ -15,7 +15,8 @@ class MainController {
         event.preventDefault();
 
         if(this._validateform()){
-            this._message.message = this._inputType.value == 'encode' ? this._encrypt() : this._decrypt();
+            this._message.result = this._inputType.value == 'encode' ? this._encrypt() : this._decrypt();
+            this._message.key = this._inputKey.value;
             this._componentMessage.update(this._message);
         }
     }
@@ -74,6 +75,7 @@ class MainController {
 
         this._inputPhrase.focus();
     }
+
 
     _validateform (){
         if(!this._validateField(this._inputPhrase)){
