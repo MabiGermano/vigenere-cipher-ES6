@@ -76,6 +76,22 @@ class MainController {
         this._inputPhrase.focus();
     }
 
+    copyResult(event) {
+        event.preventDefault();
+        let result = document.querySelector('#result');
+        let selection = window.getSelection();
+        var range = document.createRange();
+        
+        if (selection.rangeCount > 0) {
+            selection.removeAllRanges();
+        }
+        range.selectNode(result);
+        console.log(range); 
+        selection.addRange(range);
+        document.execCommand('copy');
+        selection.removeRange(range);
+        
+    }
 
     _validateform (){
         if(!this._validateField(this._inputPhrase)){

@@ -18,9 +18,9 @@ class CodedMessageView extends View{
             <tbody>
                 <tr>
                     <td class="text-wrap">${model.key}</td>
-                    <td class="text-wrap">${model.result}</td>
+                    <td class="text-wrap" id="result">${model.result}</td>
                     <td class="text-wrap">
-                        <a>
+                        <a href onclick="controller.copyResult(event)">
                             <i class="material-icons">content_copy</i>
                         </a>
                     </td>
